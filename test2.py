@@ -30,7 +30,7 @@ def get_last_lotto_numbers():
             break
 
     print(LAST_LOTTO_NUMBERS)
-    return json.dumps(LAST_LOTTO_NUMBERS)
+    return json.load(json.dumps(LAST_LOTTO_NUMBERS))
 
 # 입력받은 예상 번호 문자열을 리스트로 변환
 # http://xxxxxxxx/api/insert_lotto_numbers?numbers=11 22 33 44 32 17
@@ -48,7 +48,7 @@ def insert_lotto_numbers(numbers):
 
     print(200, LOTTO_NUMBERS)
 
-    return json.dumps(LOTTO_NUMBERS)
+    return json.load(json.dumps(LOTTO_NUMBERS))
 
 # 자동 번호 가져오기
 
@@ -81,7 +81,7 @@ def check_lotto_numbers():
     if LOTTO_NUMBERS == LAST_LOTTO_NUMBERS:
         result = True
 
-    return json.dumps({"RESULT": result})
+    return json.load(json.dumps({"RESULT": result}))
 
 
 if __name__ == "__main__":
