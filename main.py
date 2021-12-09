@@ -3,6 +3,7 @@ import numpy as np
 from fastapi import FastAPI
 import uvicorn
 import json
+from fastapi.middleware.cors import CORSMiddleware  # cross domin
 
 # 입력받은 예상 번호 List 변수
 LOTTO_NUMBERS = []
@@ -12,6 +13,25 @@ LAST_LOTTO_NUMBERS = []
 
 # FastAPI() 실행하여 app이란 변수에 할당
 app = FastAPI()
+
+
+origins = [
+    "http://localhost",
+    "http://localhost:5000",
+    "http://localhost:8887",
+    "http://127.0.0.1",
+    "http://127.0.0.1:5000",
+    "http://127.0.0.1:8887",
+    "http://119.195.78.216"
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 # 지난주 로또번호 가져오기(랜덤)
