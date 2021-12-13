@@ -22,7 +22,10 @@ origins = [
     "http://127.0.0.1",
     "http://127.0.0.1:5000",
     "http://127.0.0.1:8887",
-    "http://119.195.78.216"
+    "http://119.195.78.216",
+    "http://apps.forcei.co.kr",
+    "http://apps.forcei.co.kr:19003",
+    "http://apps.forcei.co.kr:19002"
 ]
 
 app.add_middleware(
